@@ -39,15 +39,15 @@ void detectorconstruction::DefineMaterials(){
 
 
     // define the C
-    C = new G4Element("Carbon", "C", 6, 12);
+    C = new G4Element("Carbon", "C", 6, 12*g/mole);
     // define the H
-    H = new G4Element("Hydrogen","H", 1, 1);
+    H = new G4Element("Hydrogen","H", 1, 1*g/mole);
     // define the N
-    N = new G4Element("Nytrogen", "N", 7, 14);
+    N = new G4Element("Nytrogen", "N", 7, 14*g/mole);
     // define the S
-    S = new G4Element("Sulfure", "S", 16, 32);
+    S = new G4Element("Sulfure", "S", 16, 32*g/mole);
     // define the I
-    I = new G4Element("Iodine", "I", 53, 126.9);
+    I = new G4Element("Iodine", "I", 53, 126.9*g/mole);
     // define the dye
     dye = new G4Material("dye", 1.757*g/cm3, 5);
     // add elements
@@ -68,13 +68,13 @@ void detectorconstruction::DefineMaterials(){
 
     // define other elements required for the fricke solution construction
     // define the O
-    O = new G4Element("Oxygen", "O", 8, 16);
+    O = new G4Element("Oxygen", "O", 8, 16*g/mole);
     // define the Na
-    Na = new G4Element("Sodium", "Na", 11, 23);
+    Na = new G4Element("Sodium", "Na", 11, 23*g/mole);
     // define the Cl
-    Cl = new G4Element("Clorhine", "Cl", 17, 35.4);
+    Cl = new G4Element("Clorhine", "Cl", 17, 35.4*g/mole);
     // define the Fe
-    Fe = new G4Element("Ferrum", "Fe", 26, 55.8);
+    Fe = new G4Element("Ferrum", "Fe", 26, 55.8*g/mole);
 
     // define the molecules needed
     // sodium clorhine
@@ -243,9 +243,9 @@ void detectorconstruction::UVLamp()
     
 
     // define the Petri dish solid
-    solid_cp1 = new G4Tubs ("cp1_solid", 0*cm, 3*cm, 3*cm, 0.*deg, 360.*deg);    
-    solid_cp2 = new G4Tubs ("cp2_solid", 0*cm, 3*cm, 3*cm, 0.*deg, 360.*deg); 
-    solid_glass_inter = new G4Tubs ("inter_solid", 0*cm, 2*cm, 10*cm, 0.*deg, 360.*deg); 
+    solid_cp1 = new G4Tubs ("cp1_solid", 0*cm, (26.23/2)*cm, (1.5/2)*cm, 0.*deg, 360.*deg);    
+    solid_cp2 = new G4Tubs ("cp2_solid", 0*cm, (26.23/2)*cm, (1.5/2)*cm, 0.*deg, 360.*deg); 
+    solid_glass_inter = new G4Tubs ("inter_solid", 0*cm, (26.23/2)*cm, (43.6/2)*cm, 0.*deg, 360.*deg); 
 
 
     // LOGICS OF THE GEOMETRY
@@ -273,7 +273,7 @@ void detectorconstruction::UVLamp()
 
     // define physical volume of end 1
     phys_end1 = new G4PVPlacement(0,                        //no rotation
-                    G4ThreeVector(0, 10*cm, -13*cm),        //at position
+                    G4ThreeVector(0, 30*cm, (-43.6/2)*cm),        //at position
                     logic_end1,                             //its logical volume
                     "end1_phys",                            //its name
                     logicWorld,                             //its mother  volume
@@ -283,7 +283,7 @@ void detectorconstruction::UVLamp()
 
     // define physical volume of end 2
     phys_end2 = new G4PVPlacement(0,                    //no rotation
-                    G4ThreeVector(0, 10*cm, 13*cm),     //at position
+                    G4ThreeVector(0, 30*cm, (43.6/2)*cm),     //at position
                     logic_end2,                         //its logical volume
                     "end2_phys",                        //its name
                     logicWorld,                         //its mother  volume
@@ -293,7 +293,7 @@ void detectorconstruction::UVLamp()
 
     // define physical volume of end 2
     phys_glass_inter = new G4PVPlacement(0,              //no rotation
-                    G4ThreeVector(0, 10*cm, 0),          //at position
+                    G4ThreeVector(0, 30*cm, 0),          //at position
                     logic_glass_inter,                   //its logical volume
                     "inter_glass_phys",                  //its name
                     logicWorld,                          //its mother  volume
@@ -325,9 +325,9 @@ G4VPhysicalVolume* detectorconstruction::Construct()
 {
   // define the world 
   // define the size
-  G4double long_x1= 0.3*m;
-  G4double long_y1= 0.3*m;
-  G4double long_z1= 0.3*m;
+  G4double long_x1= 1*m;
+  G4double long_y1= 0.5*m;
+  G4double long_z1= 0.5*m;
   
   
   // define world solid
