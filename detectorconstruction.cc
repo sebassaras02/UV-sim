@@ -270,10 +270,12 @@ void detectorconstruction::UVLamp()
      
     // PHYSICS OF THE GEOMETRY
 
+    G4double loc_uv_lamp = 30*cm;
+
 
     // define physical volume of end 1
     phys_end1 = new G4PVPlacement(0,                        //no rotation
-                    G4ThreeVector(0, 30*cm, (-43.6/2)*cm),        //at position
+                    G4ThreeVector(0, loc_uv_lamp, (-43.6/2)*cm),        //at position
                     logic_end1,                             //its logical volume
                     "end1_phys",                            //its name
                     logicWorld,                             //its mother  volume
@@ -283,7 +285,7 @@ void detectorconstruction::UVLamp()
 
     // define physical volume of end 2
     phys_end2 = new G4PVPlacement(0,                    //no rotation
-                    G4ThreeVector(0, 30*cm, (43.6/2)*cm),     //at position
+                    G4ThreeVector(0, loc_uv_lamp, (43.6/2)*cm),     //at position
                     logic_end2,                         //its logical volume
                     "end2_phys",                        //its name
                     logicWorld,                         //its mother  volume
@@ -293,7 +295,7 @@ void detectorconstruction::UVLamp()
 
     // define physical volume of end 2
     phys_glass_inter = new G4PVPlacement(0,              //no rotation
-                    G4ThreeVector(0, 30*cm, 0),          //at position
+                    G4ThreeVector(0, loc_uv_lamp, 0),          //at position
                     logic_glass_inter,                   //its logical volume
                     "inter_glass_phys",                  //its name
                     logicWorld,                          //its mother  volume
