@@ -31,7 +31,75 @@ void detectorconstruction::DefineMaterials(){
     glass = nist->FindOrBuildMaterial("G4_Pyrex_Glass");
     // define plastic
     plastic = nist->FindOrBuildMaterial("G4_POLYPROPYLENE");
+    // define the fe
+    fe = nist->FindOrBuildMaterial("G4_Fe");
+
+    
+    // DYE CONSTRUCTION
+
+
+    // define the C
+    C = new G4Element("Carbon", "C", 6, 12);
+    // define the H
+    H = new G4Element("Hydrogen","H", 1, 1);
+    // define the N
+    N = new G4Element("Nytrogen", "N", 7, 14);
+    // define the S
+    S = new G4Element("Sulfure", "S", 16, 32);
+    // define the I
+    I = new G4Element("Iodine", "I", 53, 126.9);
+    // define the dye
+    dye = new G4Material("dye", 1.757*g/cm3, 5);
+    // add elements
+    dye->AddElement(C, 17);
+    dye->AddElement(H, 18);
+    dye->AddElement(N, 3);
+    dye->AddElement(I, 1);
+    dye->AddElement(S, 1);
+
+    // DEFINE THE WATER SOLUTION WITH THE DYE
+    dye_water = new G4Material("dye_solution", 1*g/cm3, 2);
+    dye_water->AddMaterial(dye, 0.0013438*perCent);
+    dye_water->AddMaterial(water, (1-0.0013438)*perCent);
+
+
+    // FRICKE SOLUTION
+
+
+    // define other elements required for the fricke solution construction
+    // define the O
+    O = new G4Element("Oxygen", "O", 8, 16);
+    // define the Na
+    Na = new G4Element("Sodium", "Na", 11, 23);
+    // define the Cl
+    Cl = new G4Element("Clorhine", "Cl", 17, 35.4);
+    // define the Fe
+    Fe = new G4Element("Ferrum", "Fe", 26, 55.8);
+
+    // define the molecules needed
+    // sodium clorhine
+    saltNa = new G4Material("Sodium_Clorhine", 2.16*g/cm3, 2);
+    saltNa->AddElement(Na, 1);
+    saltNa->AddElement(Cl, 1);
+    // sulfuric acid
+    acid = new G4Material("Sulfuric_Acid", 1.83*g/cm3, 3);
+    acid->AddElement(H, 2);
+    acid->AddElement(S, 1);
+    acid->AddElement(O, 4);
+    // fe salt
+    saltFe = new G4Material("Fe_salt", 1.898*g/cm3, 4);
+    saltFe->AddElement(H, 14);
+    saltFe->AddElement(Fe, 1);
+    saltFe->AddElement(O, 11);
+    saltFe->AddElement(S, 1);
+    // DEFINE THE FRICKE SOLUTION
+    fe_water = new G4Material("dye_solution", 1.024*g/cm3, 4);
+    fe_water->AddMaterial(water, 0.97*perCent);
+    fe_water->AddMaterial(saltNa, 0.01*perCent);
+    fe_water->AddMaterial(acid, 0.01*perCent);
+    fe_water->AddMaterial(saltFe, 0.01*perCent);
 }
+
 
 void detectorconstruction::PetriDishFe1()
 {
@@ -39,23 +107,23 @@ void detectorconstruction::PetriDishFe1()
     
 
     // define the Petri dish solid
-    solid_glass1 = new G4Tubs ("glass_solid", 0*cm, (9.7/2)*cm, (1.5/2)*cm, 0.*deg, 360.*deg);
+    solid_glass1 = new G4Tubs ("glass_solid", 0*cm, (9.37/2)*cm, (1.5/2)*cm, 0.*deg, 360.*deg);
 
     // define the water solid inside the Petri dish
-    solid_water1 = new G4Tubs ("water_solid", 0*cm, (9.6/2)*cm, (1.1/2)*cm, 0.*deg, 360.*deg);
+    solid_water1 = new G4Tubs ("water_solid", 0*cm, (8.89/2)*cm, (1.3/2)*cm, 0.*deg, 360.*deg);
 
-    // define the air inside the Petri dish
-    solid_air1 = new G4Tubs ("air_solid", 0*cm, (9.6/2)*cm, (0.38/2)*cm, 0.*deg, 360.*deg);
+    // // define the air inside the Petri dish
+    // solid_air1 = new G4Tubs ("air_solid", 0*cm, (9.6/2)*cm, (0.38/2)*cm, 0.*deg, 360.*deg);
 
     // define the solids for the glass covering
-    solid_cp1 = new G4Tubs ("cover1_solid", (11.8/2)*cm, (12/2)*cm, (2/2)*cm, 0.*deg, 360.*deg);
-    solid_cp2 = new G4Tubs ("cover2_solid", 0*cm, (12/2)*cm, 0.05*cm, 0.*deg, 360.*deg);
+    solid_cp1 = new G4Tubs ("cover1_solid", (9.55/2)*cm, (10.15/2)*cm, (0.5/2)*cm, 0.*deg, 360.*deg);
+    solid_cp2 = new G4Tubs ("cover2_solid", 0*cm, (10.15/2)*cm, (1.3/2)*cm, 0.*deg, 360.*deg);
 
     // make the Union 
     G4RotationMatrix rot1 =  G4RotationMatrix();
     G4RotationMatrix rot2 =  G4RotationMatrix();
     G4ThreeVector position1 =  G4ThreeVector();
-    G4ThreeVector position2 =  G4ThreeVector(0,0,1*cm);
+    G4ThreeVector position2 =  G4ThreeVector(0,0,(1.3/2)*cm);
     G4Transform3D trans1 = G4Transform3D(rot1, position1);
     G4Transform3D trans2 = G4Transform3D(rot2, position2);
 
@@ -79,9 +147,9 @@ void detectorconstruction::PetriDishFe1()
                                       "water_logic");   // the name of the logic volume
 
     // define the logic of the solid_air1
-    logic_air1 = new G4LogicalVolume(solid_air1,      // the solid
-                                      air,            // the material
-                                      "air_logic");   // the name of the logic volume
+    // logic_air1 = new G4LogicalVolume(solid_air1,      // the solid
+    //                                   air,            // the material
+    //                                   "air_logic");   // the name of the logic volume
 
     // define the logic of the glass covering the Petri dish (solid_coverglass1)
     logic_coverglass1 = new G4LogicalVolume(solid_coverglass,       // the solid
@@ -108,7 +176,7 @@ void detectorconstruction::PetriDishFe1()
 
     // define physical volume of water inside the Petri dish
     phys_water1 = new G4PVPlacement(0,                  //no rotation
-                    G4ThreeVector(0, 0, (-0.38/2)*cm),  //at position
+                    G4ThreeVector(0, 0, (0.2/2)*cm),  //at position
                     logic_water1,                       //its logical volume
                     "water_phys",                       //its name
                     logic_glass1,                       //its mother  volume
@@ -117,14 +185,14 @@ void detectorconstruction::PetriDishFe1()
                     true);                              //overlaps checking
     
     // define physical volume of air inside the Petri dish
-    phys_air1 = new G4PVPlacement(0,                    //no rotation
-                    G4ThreeVector(0, 0, (1.1/2)*cm),    //at position
-                    logic_air1,                         //its logical volume
-                    "air_phys",                         //its name
-                    logic_glass1,                       //its mother  volume
-                    false,                              //no boolean operation
-                    0,                                  //copy number
-                    true);                              //overlaps checking
+    // phys_air1 = new G4PVPlacement(0,                    //no rotation
+    //                 G4ThreeVector(0, 0, (1.1/2)*cm),    //at position
+    //                 logic_air1,                         //its logical volume
+    //                 "air_phys",                         //its name
+    //                 logic_glass1,                       //its mother  volume
+    //                 false,                              //no boolean operation
+    //                 0,                                  //copy number
+    //                 true);                              //overlaps checking
 
     // define physical volume of glass covering
     
@@ -163,9 +231,9 @@ void detectorconstruction::PetriDishFe1()
 
     // air
     // magenta
-    auto dt5_VisAtt= new G4VisAttributes(G4Colour(1.0,0.0,1.0));
-    dt5_VisAtt->SetVisibility(true);
-    logic_air1->SetVisAttributes(dt5_VisAtt);
+    // auto dt5_VisAtt= new G4VisAttributes(G4Colour(1.0,0.0,1.0));
+    // dt5_VisAtt->SetVisibility(true);
+    // logic_air1->SetVisAttributes(dt5_VisAtt);
          
 }
 

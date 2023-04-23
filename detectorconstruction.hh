@@ -81,7 +81,11 @@ private:
     
 
     // define materials
-    G4Material *air, *water, *glass, *plastic;
+    G4Material *air, *water, *glass, *plastic, *fe;
+    // define elements to construct the dye and fricke solution 
+    G4Element *C, *H, *I, *N, *S, *O, *Cl, *Na, *Fe;
+    // define materials for the water solutions
+    G4Material *fe_water, *dye, *dye_water, *saltNa, *acid, *saltFe;
 
     void DefineMaterials();
     
