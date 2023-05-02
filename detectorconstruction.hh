@@ -43,6 +43,14 @@ class detectorconstruction:public G4VUserDetectorConstruction
     ~detectorconstruction();
     
     G4LogicalVolume *GetScoringVolume1() const {return fScoringVolume1;}
+    G4LogicalVolume *GetScoringVolume2() const {return fScoringVolume2;}
+    G4LogicalVolume *GetScoringVolume3() const {return fScoringVolume3;}
+    G4LogicalVolume *GetScoringVolume4() const {return fScoringVolume4;}
+    G4LogicalVolume *GetScoringVolume5() const {return fScoringVolume5;}
+    G4LogicalVolume *GetScoringVolume6() const {return fScoringVolume6;}
+    G4LogicalVolume *GetScoringVolume7() const {return fScoringVolume7;}
+    G4LogicalVolume *GetScoringVolume8() const {return fScoringVolume8;}
+
 
     // methods to construct Petri dishes
     void PetriDishFe1();

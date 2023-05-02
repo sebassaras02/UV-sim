@@ -29,9 +29,24 @@ class runaction : public G4UserRunAction{
     virtual void EndOfRunAction(const G4Run*);
 
     void AddEventEdep1 (G4double edep) {fEvEdep1+=edep;};
+    void AddEventEdep2 (G4double edep) {fEvEdep2+=edep;};
+    void AddEventEdep3 (G4double edep) {fEvEdep3+=edep;};
+    void AddEventEdep4 (G4double edep) {fEvEdep4+=edep;};
+    void AddEventEdep5 (G4double edep) {fEvEdep5+=edep;};
+    void AddEventEdep6 (G4double edep) {fEvEdep6+=edep;};
+    void AddEventEdep7 (G4double edep) {fEvEdep7+=edep;};
+    void AddEventEdep8 (G4double edep) {fEvEdep8+=edep;};
 
     private:
     G4Accumulable<G4double> fEvEdep1 = 0.;
+    G4Accumulable<G4double> fEvEdep2 = 0.;
+    G4Accumulable<G4double> fEvEdep3 = 0.;
+    G4Accumulable<G4double> fEvEdep4 = 0.;
+    G4Accumulable<G4double> fEvEdep5 = 0.;
+    G4Accumulable<G4double> fEvEdep6 = 0.;
+    G4Accumulable<G4double> fEvEdep7 = 0.;
+    G4Accumulable<G4double> fEvEdep8 = 0.;
+
 };
 
 #endif
