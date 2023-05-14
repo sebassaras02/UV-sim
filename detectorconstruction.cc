@@ -132,14 +132,14 @@ void detectorconstruction::PetriDishFe1()
     // solid_air1 = new G4Tubs ("air_solid", 0*cm, (9.6/2)*cm, (0.38/2)*cm, 0.*deg, 360.*deg);
 
     // define the solids for the glass covering
-    solid_cp1 = new G4Tubs ("cover1_solid", (9.55/2)*cm, (10.15/2)*cm, (0.5/2)*cm, 0.*deg, 360.*deg);
-    solid_cp2 = new G4Tubs ("cover2_solid", 0*cm, (10.15/2)*cm, (1.3/2)*cm, 0.*deg, 360.*deg);
+    solid_cp1 = new G4Tubs ("cover1_solid", (9.55/2)*cm, (10.15/2)*cm, (1.5/2)*cm, 0.*deg, 360.*deg);
+    solid_cp2 = new G4Tubs ("cover2_solid", 0*cm, (10.15/2)*cm, (0.2/2)*cm, 0.*deg, 360.*deg);
 
     // make the Union 
     G4RotationMatrix rot1 =  G4RotationMatrix();
     G4RotationMatrix rot2 =  G4RotationMatrix();
     G4ThreeVector position1 =  G4ThreeVector();
-    G4ThreeVector position2 =  G4ThreeVector(0,0,(1.3/2)*cm);
+    G4ThreeVector position2 =  G4ThreeVector(0,0,(1.7/2)*cm);
     G4Transform3D trans1 = G4Transform3D(rot1, position1);
     G4Transform3D trans2 = G4Transform3D(rot2, position2);
 
@@ -209,7 +209,7 @@ void detectorconstruction::PetriDishFe1()
     mat2->rotateX(90*deg);
     
     phys_coverglass1 = new G4PVPlacement(mat2,              //no rotation
-                          G4ThreeVector(x1,y1+2*cm,z1),          //at position
+                          G4ThreeVector(x1,y1,z1),          //at position
                           logic_coverglass1,                //its logical volume
                           "glass_cover_phys",               //its name
                           logicWorld,                       //its mother  volume
@@ -261,14 +261,14 @@ void detectorconstruction::PetriDishDye1()
     // solid_air1 = new G4Tubs ("air_solid", 0*cm, (9.6/2)*cm, (0.38/2)*cm, 0.*deg, 360.*deg);
 
     // define the solids for the glass covering
-    solid_cp1_2 = new G4Tubs ("cover1_solid2", (9.55/2)*cm, (10.15/2)*cm, (0.5/2)*cm, 0.*deg, 360.*deg);
-    solid_cp2_2 = new G4Tubs ("cover2_solid2", 0*cm, (10.15/2)*cm, (1.3/2)*cm, 0.*deg, 360.*deg);
+    solid_cp1_2 = new G4Tubs ("cover1_solid2", (9.55/2)*cm, (10.15/2)*cm, (1.5/2)*cm, 0.*deg, 360.*deg);
+    solid_cp2_2 = new G4Tubs ("cover2_solid2", 0*cm, (10.15/2)*cm, (0.2/2)*cm, 0.*deg, 360.*deg);
 
     // make the Union 
     G4RotationMatrix rot1 =  G4RotationMatrix();
     G4RotationMatrix rot2 =  G4RotationMatrix();
     G4ThreeVector position1 =  G4ThreeVector();
-    G4ThreeVector position2 =  G4ThreeVector(0,0,(1.3/2)*cm);
+    G4ThreeVector position2 =  G4ThreeVector(0,0,(1.7/2)*cm);
     G4Transform3D trans1 = G4Transform3D(rot1, position1);
     G4Transform3D trans2 = G4Transform3D(rot2, position2);
 
@@ -339,7 +339,7 @@ void detectorconstruction::PetriDishDye1()
     mat2->rotateX(90*deg);
     
     phys_coverglass2 = new G4PVPlacement(mat2,              //no rotation
-                          G4ThreeVector(x1,y1+2*cm,z1),          //at position
+                          G4ThreeVector(x1,y1,z1),          //at position
                           logic_coverglass2,                //its logical volume
                           "glass_cover_phys2",               //its name
                           logicWorld,                       //its mother  volume
@@ -391,14 +391,14 @@ void detectorconstruction::PetriDishDye2()
     // solid_air1 = new G4Tubs ("air_solid", 0*cm, (9.6/2)*cm, (0.38/2)*cm, 0.*deg, 360.*deg);
 
     // define the solids for the glass covering
-    solid_cp1_3 = new G4Tubs ("cover1_solid3", (9.55/2)*cm, (10.15/2)*cm, (0.5/2)*cm, 0.*deg, 360.*deg);
-    solid_cp2_3 = new G4Tubs ("cover2_solid3", 0*cm, (10.15/2)*cm, (1.3/2)*cm, 0.*deg, 360.*deg);
+    solid_cp1_3 = new G4Tubs ("cover1_solid3", (9.55/2)*cm, (10.15/2)*cm, (1.5/2)*cm, 0.*deg, 360.*deg);
+    solid_cp2_3 = new G4Tubs ("cover2_solid3", 0*cm, (10.15/2)*cm, (0.2/2)*cm, 0.*deg, 360.*deg);
 
     // make the Union 
     G4RotationMatrix rot1 =  G4RotationMatrix();
     G4RotationMatrix rot2 =  G4RotationMatrix();
     G4ThreeVector position1 =  G4ThreeVector();
-    G4ThreeVector position2 =  G4ThreeVector(0,0,(1.3/2)*cm);
+    G4ThreeVector position2 =  G4ThreeVector(0,0,(1.7/2)*cm);
     G4Transform3D trans1 = G4Transform3D(rot1, position1);
     G4Transform3D trans2 = G4Transform3D(rot2, position2);
 
@@ -469,7 +469,7 @@ void detectorconstruction::PetriDishDye2()
     mat2->rotateX(90*deg);
     
     phys_coverglass3 = new G4PVPlacement(mat2,              //no rotation
-                          G4ThreeVector(x1,y1+2*cm,z1),          //at position
+                          G4ThreeVector(x1,y1,z1),          //at position
                           logic_coverglass3,                //its logical volume
                           "glass_cover_phys3",               //its name
                           logicWorld,                       //its mother  volume
@@ -521,14 +521,14 @@ void detectorconstruction::PetriDishFe2()
     // solid_air1 = new G4Tubs ("air_solid", 0*cm, (9.6/2)*cm, (0.38/2)*cm, 0.*deg, 360.*deg);
 
     // define the solids for the glass covering
-    solid_cp1_4 = new G4Tubs ("cover1_solid4", (9.55/2)*cm, (10.15/2)*cm, (0.5/2)*cm, 0.*deg, 360.*deg);
-    solid_cp2_4 = new G4Tubs ("cover2_solid4", 0*cm, (10.15/2)*cm, (1.3/2)*cm, 0.*deg, 360.*deg);
+    solid_cp1_4 = new G4Tubs ("cover1_solid4", (9.55/2)*cm, (10.15/2)*cm, (1.5/2)*cm, 0.*deg, 360.*deg);
+    solid_cp2_4 = new G4Tubs ("cover2_solid4", 0*cm, (10.15/2)*cm, (0.2/2)*cm, 0.*deg, 360.*deg);
 
     // make the Union 
     G4RotationMatrix rot1 =  G4RotationMatrix();
     G4RotationMatrix rot2 =  G4RotationMatrix();
     G4ThreeVector position1 =  G4ThreeVector();
-    G4ThreeVector position2 =  G4ThreeVector(0,0,(1.3/2)*cm);
+    G4ThreeVector position2 =  G4ThreeVector(0,0,(1.7/2)*cm);
     G4Transform3D trans1 = G4Transform3D(rot1, position1);
     G4Transform3D trans2 = G4Transform3D(rot2, position2);
 
@@ -599,7 +599,7 @@ void detectorconstruction::PetriDishFe2()
     mat2->rotateX(90*deg);
     
     phys_coverglass4 = new G4PVPlacement(mat2,              //no rotation
-                          G4ThreeVector(x1,y1+2*cm,z1),          //at position
+                          G4ThreeVector(x1,y1,z1),          //at position
                           logic_coverglass4,                //its logical volume
                           "glass_cover_phys4",               //its name
                           logicWorld,                       //its mother  volume
@@ -651,14 +651,14 @@ void detectorconstruction::PetriDishDye3()
     // solid_air1 = new G4Tubs ("air_solid", 0*cm, (9.6/2)*cm, (0.38/2)*cm, 0.*deg, 360.*deg);
 
     // define the solids for the glass covering
-    solid_cp1_5 = new G4Tubs ("cover1_solid5", (9.55/2)*cm, (10.15/2)*cm, (0.5/2)*cm, 0.*deg, 360.*deg);
-    solid_cp2_5 = new G4Tubs ("cover2_solid5", 0*cm, (10.15/2)*cm, (1.3/2)*cm, 0.*deg, 360.*deg);
+    solid_cp1_5 = new G4Tubs ("cover1_solid5", (9.55/2)*cm, (10.15/2)*cm, (1.5/2)*cm, 0.*deg, 360.*deg);
+    solid_cp2_5 = new G4Tubs ("cover2_solid5", 0*cm, (10.15/2)*cm, (0.2/2)*cm, 0.*deg, 360.*deg);
 
     // make the Union 
     G4RotationMatrix rot1 =  G4RotationMatrix();
     G4RotationMatrix rot2 =  G4RotationMatrix();
     G4ThreeVector position1 =  G4ThreeVector();
-    G4ThreeVector position2 =  G4ThreeVector(0,0,(1.3/2)*cm);
+    G4ThreeVector position2 =  G4ThreeVector(0,0,(1.7/2)*cm);
     G4Transform3D trans1 = G4Transform3D(rot1, position1);
     G4Transform3D trans2 = G4Transform3D(rot2, position2);
 
@@ -729,7 +729,7 @@ void detectorconstruction::PetriDishDye3()
     mat2->rotateX(90*deg);
     
     phys_coverglass5 = new G4PVPlacement(mat2,              //no rotation
-                          G4ThreeVector(x1,y1+2*cm,z1),          //at position
+                          G4ThreeVector(x1,y1,z1),          //at position
                           logic_coverglass5,                //its logical volume
                           "glass_cover_phys5",               //its name
                           logicWorld,                       //its mother  volume
@@ -781,14 +781,14 @@ void detectorconstruction::PetriDishFe3()
     // solid_air1 = new G4Tubs ("air_solid", 0*cm, (9.6/2)*cm, (0.38/2)*cm, 0.*deg, 360.*deg);
 
     // define the solids for the glass covering
-    solid_cp1_6 = new G4Tubs ("cover1_solid6", (9.55/2)*cm, (10.15/2)*cm, (0.5/2)*cm, 0.*deg, 360.*deg);
-    solid_cp2_6 = new G4Tubs ("cover2_solid6", 0*cm, (10.15/2)*cm, (1.3/2)*cm, 0.*deg, 360.*deg);
+    solid_cp1_6 = new G4Tubs ("cover1_solid6", (9.55/2)*cm, (10.15/2)*cm, (1.5/2)*cm, 0.*deg, 360.*deg);
+    solid_cp2_6 = new G4Tubs ("cover2_solid6", 0*cm, (10.15/2)*cm, (0.2/2)*cm, 0.*deg, 360.*deg);
 
     // make the Union 
     G4RotationMatrix rot1 =  G4RotationMatrix();
     G4RotationMatrix rot2 =  G4RotationMatrix();
     G4ThreeVector position1 =  G4ThreeVector();
-    G4ThreeVector position2 =  G4ThreeVector(0,0,(1.3/2)*cm);
+    G4ThreeVector position2 =  G4ThreeVector(0,0,(1.7/2)*cm);
     G4Transform3D trans1 = G4Transform3D(rot1, position1);
     G4Transform3D trans2 = G4Transform3D(rot2, position2);
 
@@ -859,7 +859,7 @@ void detectorconstruction::PetriDishFe3()
     mat2->rotateX(90*deg);
     
     phys_coverglass6 = new G4PVPlacement(mat2,              //no rotation
-                          G4ThreeVector(x1,y1+2*cm,z1),          //at position
+                          G4ThreeVector(x1,y1,z1),          //at position
                           logic_coverglass6,                //its logical volume
                           "glass_cover_phys6",               //its name
                           logicWorld,                       //its mother  volume
@@ -911,14 +911,14 @@ void detectorconstruction::PetriDishDye4()
     // solid_air1 = new G4Tubs ("air_solid", 0*cm, (9.6/2)*cm, (0.38/2)*cm, 0.*deg, 360.*deg);
 
     // define the solids for the glass covering
-    solid_cp1_7 = new G4Tubs ("cover1_solid7", (9.55/2)*cm, (10.15/2)*cm, (0.5/2)*cm, 0.*deg, 360.*deg);
-    solid_cp2_7 = new G4Tubs ("cover2_solid7", 0*cm, (10.15/2)*cm, (1.3/2)*cm, 0.*deg, 360.*deg);
+    solid_cp1_7 = new G4Tubs ("cover1_solid7", (9.55/2)*cm, (10.15/2)*cm, (1.5/2)*cm, 0.*deg, 360.*deg);
+    solid_cp2_7 = new G4Tubs ("cover2_solid7", 0*cm, (10.15/2)*cm, (0.2/2)*cm, 0.*deg, 360.*deg);
 
     // make the Union 
     G4RotationMatrix rot1 =  G4RotationMatrix();
     G4RotationMatrix rot2 =  G4RotationMatrix();
     G4ThreeVector position1 =  G4ThreeVector();
-    G4ThreeVector position2 =  G4ThreeVector(0,0,(1.3/2)*cm);
+    G4ThreeVector position2 =  G4ThreeVector(0,0,(1.7/2)*cm);
     G4Transform3D trans1 = G4Transform3D(rot1, position1);
     G4Transform3D trans2 = G4Transform3D(rot2, position2);
 
@@ -989,7 +989,7 @@ void detectorconstruction::PetriDishDye4()
     mat2->rotateX(90*deg);
     
     phys_coverglass7 = new G4PVPlacement(mat2,              //no rotation
-                          G4ThreeVector(x1,y1+2*cm,z1),          //at position
+                          G4ThreeVector(x1,y1,z1),          //at position
                           logic_coverglass7,                //its logical volume
                           "glass_cover_phys7",               //its name
                           logicWorld,                       //its mother  volume
@@ -1041,14 +1041,14 @@ void detectorconstruction::PetriDishFe4()
     // solid_air1 = new G4Tubs ("air_solid", 0*cm, (9.6/2)*cm, (0.38/2)*cm, 0.*deg, 360.*deg);
 
     // define the solids for the glass covering
-    solid_cp1_8 = new G4Tubs ("cover1_solid8", (9.55/2)*cm, (10.15/2)*cm, (0.5/2)*cm, 0.*deg, 360.*deg);
-    solid_cp2_8 = new G4Tubs ("cover2_solid8", 0*cm, (10.15/2)*cm, (1.3/2)*cm, 0.*deg, 360.*deg);
+    solid_cp1_8 = new G4Tubs ("cover1_solid8", (9.55/2)*cm, (10.15/2)*cm, (1.5/2)*cm, 0.*deg, 360.*deg);
+    solid_cp2_8 = new G4Tubs ("cover2_solid8", 0*cm, (10.15/2)*cm, (0.2/2)*cm, 0.*deg, 360.*deg);
 
     // make the Union 
     G4RotationMatrix rot1 =  G4RotationMatrix();
     G4RotationMatrix rot2 =  G4RotationMatrix();
     G4ThreeVector position1 =  G4ThreeVector();
-    G4ThreeVector position2 =  G4ThreeVector(0,0,(1.3/2)*cm);
+    G4ThreeVector position2 =  G4ThreeVector(0,0,(1.7/2)*cm);
     G4Transform3D trans1 = G4Transform3D(rot1, position1);
     G4Transform3D trans2 = G4Transform3D(rot2, position2);
 
@@ -1119,7 +1119,7 @@ void detectorconstruction::PetriDishFe4()
     mat2->rotateX(90*deg);
     
     phys_coverglass8 = new G4PVPlacement(mat2,              //no rotation
-                          G4ThreeVector(x1,y1+2*cm,z1),          //at position
+                          G4ThreeVector(x1,y1,z1),          //at position
                           logic_coverglass8,                //its logical volume
                           "glass_cover_phys8",               //its name
                           logicWorld,                       //its mother  volume

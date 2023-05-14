@@ -10,6 +10,7 @@
 #include "G4EmStandardPhysics.hh"
 #include "G4DecayPhysics.hh"
 #include "G4OpticalPhysics.hh"
+#include "G4EmPenelopePhysics.hh"
 
 //create the class
 class physicslist: public G4VModularPhysicsList
