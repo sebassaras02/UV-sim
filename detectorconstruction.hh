@@ -75,7 +75,7 @@ private:
     G4Tubs *solid_glass1, *solid_water1, *solid_air1, *solid_cp1, *solid_cp2;
     G4MultiUnion *solid_coverglass;
     // solids for the UV lamp
-    G4Tubs *solid_end1, *solid_end2, *solid_glass_inter;
+    G4Tubs *solid_end1, *solid_end2, *solid_glass_inter, *solid_air_lamp;
     // solids for the table
     G4Box *solid_table;
 
@@ -128,7 +128,7 @@ private:
     // logics for Petri dish 8
     G4LogicalVolume *logic_glass8, *logic_water8, *logic_air8,*logic_coverglass8;
     // logics for the UV lamp
-    G4LogicalVolume *logic_end1, *logic_end2, *logic_glass_inter;
+    G4LogicalVolume *logic_end1, *logic_end2, *logic_glass_inter, *logic_air_lamp;
     // logic for the table
     G4LogicalVolume* logic_table;
 
@@ -155,7 +155,7 @@ private:
     // physicals for Petri dish 8
     G4VPhysicalVolume *phys_glass8, *phys_water8, *phys_air8, *phys_coverglass8;
     // physicals for the UV lamp
-    G4VPhysicalVolume *phys_end1, *phys_end2, *phys_glass_inter;
+    G4VPhysicalVolume *phys_end1, *phys_end2, *phys_glass_inter, *phys_air_lamp;
     // physical volume for the table
     G4VPhysicalVolume *phys_table;
 

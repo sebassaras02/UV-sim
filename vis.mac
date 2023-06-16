@@ -2,6 +2,7 @@
 /vis/viewer/set/viewpointVector 1 1 1
 /vis/drawVolume
 /vis/scene/add/axes    # Simple axes: x=red, y=green, z=blue.
+/vis/enable
 /vis/viewer/flush
 /vis/viewer/set/autoRefresh true
 /vis/scene/add/trajectories smooth

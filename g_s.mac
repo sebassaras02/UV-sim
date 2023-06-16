@@ -1,9 +1,9 @@
-/gps/particle gamma
-/gps/energy 662 keV
+/gps/particle opticalphoton
+/gps/energy 4 eV
 /gps/pos/type Volume
 /gps/pos/shape Cylinder
-/gps/pos/radius 3 cm
-/gps/pos/halfz 10 cm
+/gps/pos/radius 13.115 cm
+/gps/pos/halfz 21.8 cm
 /gps/pos/centre 0 10 0 cm
 /gps/ang/type iso
 /run/beamOn 1000000

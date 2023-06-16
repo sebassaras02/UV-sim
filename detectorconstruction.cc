@@ -1166,6 +1166,7 @@ void detectorconstruction::UVLamp()
     solid_cp1 = new G4Tubs ("cp1_solid", 0*cm, (26.23/2)*cm, (1.5/2)*cm, 0.*deg, 360.*deg);    
     solid_cp2 = new G4Tubs ("cp2_solid", 0*cm, (26.23/2)*cm, (1.5/2)*cm, 0.*deg, 360.*deg); 
     solid_glass_inter = new G4Tubs ("inter_solid", 0*cm, (26.23/2)*cm, (43.6/2)*cm, 0.*deg, 360.*deg); 
+    solid_air_lamp = new G4Tubs ("inter_solid_air", 0*cm, (26/2)*cm, (43/2)*cm, 0.*deg, 360.*deg); 
 
 
     // LOGICS OF THE GEOMETRY
@@ -1187,10 +1188,14 @@ void detectorconstruction::UVLamp()
                                       glass,                        // the material
                                       "glass_inter_logic");         // the name of the logic volume 
 
+     logic_air_lamp = new G4LogicalVolume(solid_air_lamp,      // the solid
+                                      air,                        // the material
+                                      "air_inter_logic");         // the name of the logic
+     
      
     // PHYSICS OF THE GEOMETRY
 
-    G4double loc_uv_lamp = 30*cm;
+    G4double loc_uv_lamp = (1+(1.5/2))*cm+1*cm+(26.23/2)*cm;
 
 
     // define physical volume of end 1
@@ -1219,6 +1224,17 @@ void detectorconstruction::UVLamp()
                     logic_glass_inter,                   //its logical volume
                     "inter_glass_phys",                  //its name
                     logicWorld,                          //its mother  volume
+                    false,                               //no boolean operation
+                    0,                                   //copy number
+                    true);                               //overlaps checking
+                    
+                    
+    // define the air inside the lamp 
+    phys_air_lamp = new G4PVPlacement(0,              //no rotation
+                    G4ThreeVector(0, 0, 0),          //at position
+                    logic_air_lamp,                   //its logical volume
+                    "air_inter_glass_phys",                  //its name
+                    logic_glass_inter,                          //its mother  volume
                     false,                               //no boolean operation
                     0,                                   //copy number
                     true);                               //overlaps checking
@@ -1284,7 +1300,7 @@ G4VPhysicalVolume* detectorconstruction::Construct()
   PetriDishDye2();
   PetriDishDye3();
   PetriDishDye4();
-  UVLamp();
+  // UVLamp();
                     
    
   return physWorld;
